@@ -62,7 +62,7 @@ def Face_detection_in_webCam():
     frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
     size = (frame_width, frame_height)
     fourcc=cv2.VideoWriter_fourcc(*'FMP4')
-    demo = cv2.VideoWriter('myvideo.avi',fourcc,20,size)
+    demo = cv2.VideoWriter('saved//myvideo.avi',fourcc,20,size)
     while (video.isOpened()):
         ret, img = video.read()
         if (ret):
@@ -87,7 +87,7 @@ def Face_detection_in_video(path):
     frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
     size = (frame_width, frame_height)
     fourcc = cv2.VideoWriter_fourcc(*'FMP4')
-    demo = cv2.VideoWriter('myvideo2.avi', fourcc, 20, size)
+    demo = cv2.VideoWriter('saved//myvideo2.avi', fourcc, 20, size)
     while (video.isOpened()):
         ret, img = video.read()
         if (ret):
