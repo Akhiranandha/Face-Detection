@@ -62,14 +62,13 @@ def Face_detection_in_webCam():
     frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
     size = (frame_width, frame_height)
     fourcc=cv2.VideoWriter_fourcc(*'FMP4')
-    demo = cv2.VideoWriter('myvideo.avi',fourcc,20,size)
+    demo = cv2.VideoWriter('saved//myvideo.avi',fourcc,20,size)
     while (video.isOpened()):
         ret, img = video.read()
         if (ret):
-            img = cv2.resize(img, (600, 600))
             img = detect_and_show_face_in_image(img, size)
-            img = cv2.resize(img, (600, 600))
             demo.write(img)
+            img = cv2.resize(img, (600, 600))
             cv2.imshow("video", img)
             if cv2.waitKey(1) & 0xFF == ord('s'):
                 break
@@ -87,13 +86,14 @@ def Face_detection_in_video(path):
     frame_height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
     size = (frame_width, frame_height)
     fourcc = cv2.VideoWriter_fourcc(*'FMP4')
-    demo = cv2.VideoWriter('myvideo2.avi', fourcc, 20, size)
+    demo = cv2.VideoWriter('saved//myvideo2.avi', fourcc, 20, size)
     while (video.isOpened()):
         ret, img = video.read()
         if (ret):
             img = detect_and_show_face_in_image(img, size)
-            img = cv2.resize(img, (600, 600))
             demo.write(img)
+            img = cv2.resize(img, (600, 600))
+
             cv2.imshow("video", img)
             if cv2.waitKey(1) & 0xFF == ord('s'):
                 break
@@ -104,7 +104,8 @@ def Face_detection_in_video(path):
     demo.release()
     cv2.destroyAllWindows()
 
-#face detection in images
+
+
 Face_detection_in_images("Resources//group_of_people.jpg")
 Face_detection_in_video("Resources//samplevideo.mp4")
 Face_detection_in_video("Resources//samplevideo2.mp4")
